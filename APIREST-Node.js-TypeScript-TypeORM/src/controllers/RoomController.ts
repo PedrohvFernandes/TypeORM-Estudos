@@ -1,4 +1,6 @@
 import { Request, Response } from 'express'
+import { AppDataSource } from '../database/data-source'
+import { Room } from '../database/entities/Room'
 import { roomRepository } from '../repositories/roomRepository'
 import { subjectRepository } from '../repositories/subjectRepository'
 import { videoRepository } from '../repositories/videoRepository'
@@ -79,9 +81,8 @@ export class RoomController {
 
     try {
       const room = await roomRepository.findOneBy({ id: Number(room_id) })
-
       if (!room) {
-        return res.status(404).json({ message: 'Room not found' })
+        return res.status(404).json({ message: 'Subject not found' })
       }
 
       const subject = await subjectRepository.findOneBy({
@@ -92,14 +93,32 @@ export class RoomController {
         return res.status(404).json({ message: 'Subject not found' })
       }
 
-      const roomUpdated = {
-        ...room,
-        subjects: [subject]
-      }
+      // Para adicionar um relacionamento entre duas entidades, você pode usar essa primeira maneira ou
 
-      await roomRepository.save(roomUpdated)
+      // https://orkhan.gitbook.io/typeorm/docs/relational-query-builder
+      // const roomUpdated = await roomRepository.findOne({
+      //   where: { id: Number(room_id) },
+      //   relations: {
+      //     subjects: true
+      //   }
+      // })
 
-      return res.status(200).json(roomUpdated)
+      // if (!roomUpdated) {
+      //   return res.status(404).json({ message: 'Room not found' })
+      // }
+
+      // roomUpdated?.subjects.push(subject)
+
+      // const roomSubject = await roomRepository.save(roomUpdated ?? {})
+
+      // o método add() do QueryBuilder. O método add() adiciona um relacionamento entre duas entidades.
+      const roomSubject = await roomRepository
+        .createQueryBuilder()
+        .relation(Room, 'subjects')
+        .of(room)
+        .add(subject)
+
+      return res.status(200).json(roomSubject)
     } catch (error) {
       console.log(error)
       return res.status(500).json({ messageError: 'Internal server error' })
