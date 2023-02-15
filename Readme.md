@@ -11,6 +11,7 @@
 - Express
 - Node
 - Vscode
+- Insomnia REST
 - TypeScript
 - Beekeeper Studio Ultimate para visualizar as tabelas do BD com mais facilidade
 - [PostgreSql SGBD PgAdmin 15.2](https://www.postgresql.org/download/windows/) para abrir a porta do database server e criação do BD do zero
