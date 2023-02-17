@@ -93,7 +93,7 @@ export class RoomController {
         return res.status(404).json({ message: 'Subject not found' })
       }
 
-      // Para adicionar um relacionamento entre duas entidades, você pode usar essa primeira maneira ou
+      // Para adicionar um relacionamento entre duas entidades, você pode usar essa primeira maneira que possui retorno ou
 
       // https://orkhan.gitbook.io/typeorm/docs/relational-query-builder
       // const roomUpdated = await roomRepository.findOne({
@@ -111,7 +111,7 @@ export class RoomController {
 
       // const roomSubject = await roomRepository.save(roomUpdated ?? {})
 
-      // o método add() do QueryBuilder. O método add() adiciona um relacionamento entre duas entidades.
+      // o método add() do QueryBuilder. O método add() adiciona um relacionamento entre duas entidades e não possui nenhum retorno.
       const roomSubject = await roomRepository
         .createQueryBuilder()
         .relation(Room, 'subjects')

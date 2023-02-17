@@ -7,7 +7,7 @@ export class SubjectController {
 
     if (!name) {
       return response.status(400).json({
-        mensagem: 'O nome é obrigatório'
+        message: 'O nome é obrigatório'
       })
     }
 

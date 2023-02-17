@@ -1,5 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
+// Migration gerada a partir das entidades em entities, com o comando: npm run typeorm:generate, que gera as migrations quando ve que tem algo diferente no banco de dados, em relação ao que está no arquivo de configuração do typeorm, em entities.
 export class default1676476582901 implements MigrationInterface {
     name = 'default1676476582901'
 

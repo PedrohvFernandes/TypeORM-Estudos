@@ -12,6 +12,7 @@ export class Video {
   @Column({ type: 'text' })
   url: string
 
+  // Aqui realmente é uma coluna na tabela videos, ou seja, um video pode ter uma sala, mas uma sala pode ter varios videos
   @ManyToOne(() => Room, room => room.videos)
   @JoinColumn({ name: 'room_id' })
   room: Room

@@ -1,0 +1,58 @@
+Para usar o cli do TypeOrm:
+https://typeorm.io/using-cli
+
+npm install typeorm
+
+Em package.json, adicione o script:
+"scripts": {
+  ...
+  "typeorm": "typeorm-ts-node-commonjs"  ou "typeorm": "typeorm-ts-node-esm" ou "typeorm": "ts-node ./node_modules/typeorm/cli.js"
+}
+
+OU ja passe o caminho direto no script e configure data-source.ts(arquivo de configuração do typeorm)
+
+Ex no arquivo de config do typeOrm:
+  entities: [Room, Video, Subject], // Version typeOrm --> 0.3.12 and 0.3.7
+  migrations: [`${__dirname}/**/migrations/*.{ts,js}`],// Version typeOrm --> 0.3.7
+  
+"scripts": {
+  ...
+  "migration:generate": "typeorm-ts-node-commonjs -d ./src/database/data-source.ts migration:generate ./src/database/migrations/default",
+  "migration:run": "typeorm-ts-node-commonjs -d ./src/database/data-source.ts migration:run"
+},
+
+Para criar uma migration: 
+
+Crie um caminho de pastas para as migrations caso uso a primeira opção de script
+
+COMANDOS:
+npm run typeorm migration:create src/database/migrations/CreateCategories ou npm run typeorm migration:create -n CreateCategories ou migration:generate -d /arqDeConfigTypeOrm(A onde esta o caminho das entidade) /caminhoParaGerarAsMigrations, caso ja tenha feito alguma alteração, vulgo alguma entidade foi criada ou alterada
+
+Para subir a migration:
+typeorm-ts-node-commonjs 
+npm run typeorm migration:run -d ./src/database/data-source.ts migration:run
+
+OU
+
+COMANDOS:
+npm run migration:generate
+
+Para subir a migration:
+npm run migration:run
+
+
+OU
+
+"scripts": {
+  "dev": "tsx watch src/server.ts",
+  "build": "tsc --build",
+  "start": "node dist/server.js",
+  "typeorm:create": "ts-node ./node_modules/typeorm/cli.js  migration:create"
+},
+
+
+COMANDOS:
+npm run typeorm:create src/database/migrations/CreateCategories ou npm run typeorm:create -n CreateCategories
+
+
+OBS: toda vez que for rodar o run ou generate tem que ter o arquivo de configuração do typeOrm configurado com os caminhos corretos entities para o generate gerar as migrations e migrations para o run subir as migrations pro bd. E o create não precisa do arquivo de configuração do typeOrm
