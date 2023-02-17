@@ -18,7 +18,7 @@
 - Beekeeper Studio Ultimate para visualizar as tabelas do BD com mais facilidade
 - [PostgreSql SGBD PgAdmin 15.2](https://www.postgresql.org/download/windows/) para abrir/subir a porta do database server e criação do BD do zero
 
-## Tecnologias e ferramentes utilizadas a parte em todas as aulas:
+## Tecnologias e ferramentes utilizadas a parte na aula 3:
 - [Nest](https://nestjs.com) no lugar do Express
 - [Arquitetura MVC](https://blog.matheuscastiglioni.com.br/arquitetura-mvc/)
 - [Sqlite3](https://www.sqlite.org/index.html)
