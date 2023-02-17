@@ -16,7 +16,13 @@
 - Insomnia REST
 - TypeScript
 - Beekeeper Studio Ultimate para visualizar as tabelas do BD com mais facilidade
-- [PostgreSql SGBD PgAdmin 15.2](https://www.postgresql.org/download/windows/) para abrir a porta do database server e criação do BD do zero
+- [PostgreSql SGBD PgAdmin 15.2](https://www.postgresql.org/download/windows/) para abrir/subir a porta do database server e criação do BD do zero
+
+## Tecnologias e ferramentes utilizadas a parte em todas as aulas:
+- [Nest](https://nestjs.com) no lugar do Express
+- [Arquitetura MVC](https://blog.matheuscastiglioni.com.br/arquitetura-mvc/)
+- [Sqlite3](https://www.sqlite.org/index.html)
+- [TypeORM com NEST](https://docs.nestjs.com/techniques/database)
 
 ### Nome da pasta e o video relacionada a ela:
 
@@ -26,6 +32,7 @@
 - 2- CRUDComNode.JSExpressTypeORMPostgreSQLCodedrops113
   [CRUD com Node.JS, Express, TypeORM e PostgreSQL - #code/drops 113 Rocketseat](https://www.youtube.com/watch?v=9AO2hZJsHrs&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=9&t=1348s)
 
-- 
+- 3- Criando uma API e CRUD completos com Nest e TypeORM
+  [Criando uma API e CRUD completos com Nest e TypeORM Matheus Castiglioni](https://www.youtube.com/watch?v=wLr23WHZQhA&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=10&t=1055s)
 
 

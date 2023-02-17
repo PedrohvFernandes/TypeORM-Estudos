@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  synchronize: true,
+  synchronize: true, // --> usar somente em hambiente de dev, porque ela pode limpar a tabela do banco
   logging: true,
   entities: [Video, Category],
   migrations: [CreateCategories1676641511649, CreateVideos1676647041848] // --> A migration que será executada, version: typeOrm 0.3.12

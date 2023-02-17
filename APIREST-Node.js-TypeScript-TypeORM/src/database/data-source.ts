@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  synchronize: true,
+  synchronize: true, // --> usar somente em hambiente de dev, porque ela pode limpar a tabela do banco
   logging: true,
 
   // __Diraname é uma variável global que retorna o caminho do arquivo atual. _dirname é uma variável de ambiente que informa o caminho absoluto do diretório que contém o arquivo em execução no momento. Nesse caso é o database
