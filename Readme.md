@@ -24,6 +24,9 @@
 - [Sqlite3](https://www.sqlite.org/index.html)
 - [TypeORM com NEST](https://docs.nestjs.com/techniques/database)
 
+## Tecnologias e ferramentes utilizadas a parte na aula 4:
+- Comando npx para o TypeOrm realizar o projeto pre pronto: [npx](https://blog.rocketseat.com.br/conhecendo-o-npx-executor-de-pacote-do-npm/) typeorm init --database postgres  OU  npx typeorm init --name project --database postgres
+
 ### Nome da pasta e o video relacionada a ela:
 
 - 1- APIREST-Node.js-TypeScript-TypeORM
@@ -34,5 +37,8 @@
 
 - 3- Criando uma API e CRUD completos com Nest e TypeORM
   [Criando uma API e CRUD completos com Nest e TypeORM Matheus Castiglioni](https://www.youtube.com/watch?v=wLr23WHZQhA&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=10&t=1055s)
+
+- 4- Criando um Projeto do Zero com TypeORM, NodeJS, Express e MySQL
+  [Criando um Projeto do Zero com TypeORM, NodeJS, Express e MySQL TecEdu4All](https://www.youtube.com/watch?v=c74zNWoCJiA&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=14&t=2038s)
 
 

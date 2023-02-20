@@ -56,3 +56,6 @@ npm run typeorm:create src/database/migrations/CreateCategories ou npm run typeo
 
 
 OBS: toda vez que for rodar o run ou generate tem que ter o arquivo de configuração do typeOrm configurado com os caminhos corretos entities para o generate gerar as migrations e migrations para o run subir as migrations pro bd. E o create não precisa do arquivo de configuração do typeOrm
+
+
+https://www.freecodecamp.org/portuguese/news/npm-x-npx-qual-e-a-diferenca/
