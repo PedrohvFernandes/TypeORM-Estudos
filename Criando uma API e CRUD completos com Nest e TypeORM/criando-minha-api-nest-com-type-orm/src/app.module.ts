@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PersonModule } from './modules/person.module';
 import { PersonModel } from './models/person.model';
 
+// Padrao de projeto: MVC
+// Ele faz todo o carregamento dos outros modulos da aplicação toda
 @Module({
   imports: [
     PersonModule,

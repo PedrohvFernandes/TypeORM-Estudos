@@ -19,7 +19,11 @@
 - [PostgreSql SGBD PgAdmin 15.2](https://www.postgresql.org/download/windows/) para abrir/subir a porta do database server e criação do BD do zero
 
 ## Tecnologias e ferramentes utilizadas a parte na aula 3:
+- Comando npx @nestjs/cli new nome-do-projeto (com npx pra não precisar instalar o cli do nest globalmente na maquina) ou npm i -g @nest/cli > nest new nome-do-projeto (Globalmente)
 - [Nest](https://nestjs.com) no lugar do Express
+  - [Nest Microservice](https://docs.nestjs.com/microservices/basics)
+  - [Nest Microservice Kafka](https://docs.nestjs.com/microservices/kafka)
+  - [Nest interceptor](https://docs.nestjs.com/interceptors)
 - [Arquitetura MVC](https://blog.matheuscastiglioni.com.br/arquitetura-mvc/)
 - [Sqlite3](https://www.sqlite.org/index.html)
 - [TypeORM com NEST](https://docs.nestjs.com/techniques/database)
