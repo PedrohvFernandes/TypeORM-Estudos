@@ -26,7 +26,7 @@ Para criar uma migration:
 Crie um caminho de pastas para as migrations caso uso a primeira opção de script
 
 COMANDOS:
-npm run typeorm migration:create src/database/migrations/CreateCategories ou npm run typeorm migration:create -n CreateCategories ou migration:generate -d /arqDeConfigTypeOrm(A onde esta o caminho das entidade) /caminhoParaGerarAsMigrations, caso ja tenha feito alguma alteração, vulgo alguma entidade foi criada ou alterada
+npm run typeorm migration:create src/database/migrations/CreateCategories ou npm run typeorm migration:create -n CreateCategories ou -- -d /arqDeConfigTypeOrm(A onde esta o caminho das entidade) migration:generate /caminhoParaGerarAsMigrations/nomeDaMigration, caso ja tenha feito alguma alteração, vulgo alguma entidade foi criada ou alterada
 
 Para subir a migration:
 typeorm-ts-node-commonjs 

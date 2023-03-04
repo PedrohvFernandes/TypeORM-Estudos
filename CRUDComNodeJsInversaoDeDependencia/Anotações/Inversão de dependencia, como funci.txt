@@ -1,0 +1,81 @@
+Inversão de dependencia, como funciona:
+
+
+UI ------- HTTP ------ Back-end(Router ----- Controller(O que transita os dados) ------ Service(Serviço responsavel) ------ Repositorie(DB))
+
+
+UI  === HTP === Router === Controller === -> instancias ou argumentos SERVICE e instancia Repo -->
+    REQ	  REQ		   REQ		        REQ
+    === 	  ===		   ===		        ===
+
+Service === --> class abstract do serviço usado, no caso repositorio mockup BD em memoria ou BD real
+		 REQ
+		 ===
+
+<-- Repo(BD e Mockup implementão essa class abstract ou interface, enquanto o service utiliza esse serviço como argumento no construtor da classe. Dessa forma o serviço não sabera qual repo ela esta utilizando se é o de BD real para casos reais ou mockup para testes. E a classe BD e Mockup sera serviços independentes implementando a class abstract do que o repositorio tera que fazer, por exemplo criar, procurar etc.)
+
+
+Se voce usar argumentos no controller, tera que abstrair usando uma class abstract ou interface de qual serviço ele vai utilizar, ja o repositorio tera que ser uma instancia. Ou de maneira injectable, usando alguma lib, por exemplo nest, que dessa forma não é preciso instanciar nada. Para entender melhor pesquise sobre o @Injectable do nest, como resumo, ele simplismente sobe a hierarquia e descobre qual dependencia esta sendo injetado ali.
+
+
+Retornando
+
+--> Repo === --> Service ===  --> Controller(Arg ou instancia do service e repo) === --> ...
+		  res				  			 res																 										 RES
+		  ===             	 ===																 										 ===
+
+Se voce resolver fazer de forma injetando dependencia, ou seja passando como argumentos, no controller sem o uso do nest, ai voce não instancia o service e repo dentro da classe controller em si, voce teria que instancia na router, e nela usando o controller passando o service e o repo, como argumentos.
+
+Se quiser fazer com que a camada/modulo controller que esta acima do modulo service não conheça qual serviço esta sendo utilizada nele, basta usar uma class abstract no meio deles dois e dessa forma o service implementa essa class abstract, enquanto o controller recebe como argumento a class abstract service.
+
+Ou seja, na injeção de dependencia voce não deve depender de quem esta abaixo de voce, porque dessa forma o codigo fica intestavel na parte com forte acoplamento. Por exemplo o service não pode depender do serviço que ele vai receber, mas sim da abstração do que aquele serviço vai fazer, no caso o repo é persistir dados na camada do banco e so, se ele sair fora do ar tem outro para o representar, e caso queira fazer um teste disso para testar, voce pode usar um repo que seja em memoria, fazer um mockup com dados falsos. Lembrando que quando for colocar algo para retornar na função abstrata coloque algo como uma interface, null, number etc e não o que vem daquele serviço/lib, por exemplo typeOrm, porque talvez a outra não retorne isso
+
+Referencia projeto com nestjs: https://github.com/PedrohvFernandes/ignite-labe-node
+
+Para entender melhor abra esse projeto nosso dessa forma:
+1 - CategoryRepository
+2 - abstract.repositories-category
+3 - CreateCategoryService --> É como se fosse o use case do projeto usado como referencia
+4 - Controller-Category
+
+
+Para entender melhor abra o projeto usado como referencia nessa forma:
+1 - https://github.com/PedrohvFernandes/ignite-labe-node/blob/main/notifications-service/src/infra/database/prisma/repositories/prisma-notifications-repository.ts
+2 - https://github.com/PedrohvFernandes/ignite-labe-node/blob/main/notifications-service/src/application/repositories/notifications-repository.ts
+3 - https://github.com/PedrohvFernandes/ignite-labe-node/blob/main/notifications-service/src/application/use-cases/send-notification.ts
+4 - https://github.com/PedrohvFernandes/ignite-labe-node/blob/main/notifications-service/src/infra/http/controllers/notifications.controller.ts
+
+https://github.com/PedrohvFernandes/ignite-labe-node/blob/main/notifications-service/test/repositories/in-memory-notifications-repositorie.ts#L21
+
+
+
+
+
+
+
+
+
+
+Problema de importação, fora da raiz(tsconfig.json -> rootDir)
+https://stackoverflow.com/questions/57422458/error-ts6059-file-is-not-under-rootdir-rootdir-is-expected-to-contain-al
+
+Caminhos no tscofing path-mapping
+https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353
+https://blog.rocketseat.com.br/path-mapping-typescript/ 
+
+Setup para apps Node.js
+https://www.youtube.com/watch?v=rCeGfFk-uCk&t=2276s
+https://blog.rocketseat.com.br/conhecendo-o-npx-executor-de-pacote-do-npm/ --> tipo um yarn init -y, no nosso caso teria que ser npx tsc --init pra não ter que usar o ts globalmente(https://stackoverflow.com/questions/36916989/how-can-i-generate-a-tsconfig-json-file) ou npx jest --init etc. Por exemplo como o npm ja esta instalado globalmente na nossa maquina podemos usar o npm init -i ou npm init -y(ja deixa tudo pronto)
+
+
+Caminhos e tipos coringas:
+** --> Caminho coringa
+* --> Tipo coringa
+
+ex: **/*.ts --> Todos os arquivos .ts de qualquer pasta
+outro ex **/*.spec.ts --> Todos os arquivos .spec.ts de qualquer pasta
+outro ex no jest.config.ts:
+   testMatch: [
+    "**/service/**/*.[jt]s?(x)", --> Todos os arquivos .ts ou .js de qualquer pasta que esteja dentro de service
+    "**/?(*.)+(spec|test).[tj]s?(x)" --> Todos os arquivos .spec.ts ou .test.ts ou .spec.js ou .test.js de qualquer pasta
+  ],

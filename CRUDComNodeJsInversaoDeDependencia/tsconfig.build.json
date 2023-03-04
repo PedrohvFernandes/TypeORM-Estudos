@@ -1,0 +1,17 @@
+{
+    // Arquivo pra gerenciar o build e quem vai ter as configs do tsconfig.ts
+
+    // Aqui eu poderia colocar o que ele iria ignorar para o build, usando o npm run tsc --build no package.json. Mas por conta que estou usando mapping path, se eu colocar que quero ignorar esses arquivos, eles irão ficar sem o mapping path, e não irão funcionar, porque alem de ignorar para o build, ele deixa esses arquivos fora das config do ts. segundo que quando for converter para js, ou seja fazer o build eu teria que fazer mappers usando o tsc para converter os mapping de forma que o js puro entenda. Então por conta desses motivos estou utilizando o babel. Com isso, o exclude fica no babel.config.js
+    // "exclude": [
+    //   "node_modules",
+    //   "dist",
+    //   "build",
+    //   "public",
+    //   "src/test",
+    //   "src/**/*.test.ts",
+    //   "src/**/*.spec.ts"
+    // ],
+    // Ele vai incluir esses arquivos para o arquivo de configuração do ts e para a compilação do build caso for usar o tsc e demais configurações do proprio ts, como por exemplo o target, module, strict, etc.
+    "include": ["src/**/*"],
+    
+}
