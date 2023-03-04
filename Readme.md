@@ -62,4 +62,4 @@
   [Criando um Projeto do Zero com TypeORM, NodeJS, Express e MySQL TecEdu4All](https://www.youtube.com/watch?v=c74zNWoCJiA&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=14&t=2038s)
 
 - 5- Resolvi fazer um projeto sozinho, com o que aprendi nas aulas anteriores, junto com inversão de dependência, Build com Babel, Jest end two end(e2e), ts-jest, ts-node, typescript, express, pg, tsx etc. Obs: nesse projeto tem mais comentarios nos demais, mas decidi deixar esse mais comentado, para ficar mais fácil de entender o que foi feito, apesar de que ja conhecia a maioria das coisas que utilizei, mas foi bom relembrar e praticar.
-  [CRUDComNodeJsInversaoDeDependencia](https://www.youtube.com/watch?v=c74zNWoCJiA&list=PLYCbr20ulfkJ4rv9MPkUQ858q7ajqWu5Y&index=14&t=2038s)
+  [CRUDComNodeJsInversaoDeDependencia](https://github.com/PedrohvFernandes/TypeORM-Estudos/tree/main/CRUDComNodeJsInversaoDeDependencia)
