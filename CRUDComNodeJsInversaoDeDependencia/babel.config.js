@@ -1,4 +1,4 @@
-// Webpack é um empacotador de módulos, ele vai pegar todos os arquivos e vai empacotar em um único arquivo, para que o node consiga ler e executar o código. Se fosse no front-end poderia usar, mas é aconselhável que faça projetos usando o vite junto com next ou somente o vite ou somente next ou next com babel, turbopack que é diferente de webpack etc. Ja existe o vite para node https://www.npmjs.com/package/vite-node. O vite ele ja possui todo essa configuação de webpacks, buildando mais rapido possivel
+// Se fosse no front-end poderia tambem usar o babel, mas é aconselhável que faça projetos usando o vite junto com next ou somente o vite ou somente next ou next com babel, turbopack que é diferente de webpack etc. Ja existe o vite para node https://www.npmjs.com/package/vite-node. O vite ele ja possui todo essa configuação de webpacks e transcompiladores(Ex: babel), buildando mais rapido possivel, mais performace etc
 module.exports = {
   presets: [
     [
