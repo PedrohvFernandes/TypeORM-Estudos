@@ -4,25 +4,19 @@ Inversão de dependencia, como funciona:
 UI ------- HTTP ------ Back-end(Router ----- Controller(O que transita os dados) ------ Service(Serviço responsavel) ------ Repositorie(DB))
 
 
-UI  === HTP === Router === Controller === -> instancias ou argumentos SERVICE e instancia Repo -->
-    REQ	  REQ		   REQ		        REQ
-    === 	  ===		   ===		        ===
+UI  <REQ> HTP <REQ> Router <REQ> Controller <REQ> -> instancias ou argumentos SERVICE e instancia Repo no controller -->
 
-Service === --> class abstract do serviço usado, no caso repositorio mockup BD em memoria ou BD real
-		 REQ
-		 ===
+Service <REQ> --> class abstract do serviço usado, no caso repositorio mockup BD em memoria ou BD real
 
 <-- Repo(BD e Mockup implementão essa class abstract ou interface, enquanto o service utiliza esse serviço como argumento no construtor da classe. Dessa forma o serviço não sabera qual repo ela esta utilizando se é o de BD real para casos reais ou mockup para testes. E a classe BD e Mockup sera serviços independentes implementando a class abstract do que o repositorio tera que fazer, por exemplo criar, procurar etc.)
 
 
-Se voce usar argumentos no controller, tera que abstrair usando uma class abstract ou interface de qual serviço ele vai utilizar, ja o repositorio tera que ser uma instancia. Ou de maneira injectable, usando alguma lib, por exemplo nest, que dessa forma não é preciso instanciar nada. Para entender melhor pesquise sobre o @Injectable do nest, como resumo, ele simplismente sobe a hierarquia e descobre qual dependencia esta sendo injetado ali.
+Se voce usar os serviços como argumentos no controller e não instaciar, tera que abstrair usando uma class abstract ou interface de qual serviço ele vai utilizar e passar ele pelo router, ja o repositorio tera que ser uma instancia dentro do controller. Ou se preferir, podera usar o repo de maneira injectable no controller, usando alguma lib, por exemplo nest, que dessa forma não é preciso instanciar nada. Para entender melhor pesquise sobre o @Injectable do nest, como resumo, ele simplismente sobe a hierarquia e descobre qual dependencia esta sendo injetado ali, isso serveria tambem para o serviço, para injetar o repo principal nela, com isso, não precisando instanciar o repo e nem o serviço no controller, pois tudo seria injectable.
 
 
 Retornando
 
---> Repo === --> Service ===  --> Controller(Arg ou instancia do service e repo) === --> ...
-		  res				  			 res																 										 RES
-		  ===             	 ===																 										 ===
+--> Repo <RES> --> Service <RES> --> Controller(Arg ou instancia do service e repo) <RES> --> ...
 
 Se voce resolver fazer de forma injetando dependencia, ou seja passando como argumentos, no controller sem o uso do nest, ai voce não instancia o service e repo dentro da classe controller em si, voce teria que instancia na router, e nela usando o controller passando o service e o repo, como argumentos.
 
