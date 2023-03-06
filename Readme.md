@@ -63,3 +63,11 @@
 
 - 5- Resolvi fazer um projeto sozinho, com o que aprendi nas aulas anteriores, junto com inversão de dependência, Build com Babel, Jest end two end(e2e), ts-jest, ts-node, typescript, express, pg, tsx etc. Obs: nesse projeto tem mais comentarios nos demais, mas decidi deixar esse mais comentado, para ficar mais fácil de entender o que foi feito, apesar de que ja conhecia a maioria das coisas que utilizei, mas foi bom relembrar e praticar.
   [CRUDComNodeJsInversaoDeDependencia](https://github.com/PedrohvFernandes/TypeORM-Estudos/tree/main/CRUDComNodeJsInversaoDeDependencia)
+  
+
+## 👨‍💻 Autor:
+
+- Linkedin: https://www.linkedin.com/in/pedro-henrique-vieira-fernandes
+- Git: https://github.com/PedrohvFernandes
+- Instagram: pedro17fernandes
+- portfolio: PedrohvFernandes.github.io
